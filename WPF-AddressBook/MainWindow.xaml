@@ -1,0 +1,58 @@
+﻿<Window x:Class="WPF_AddressBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:WPF_AddressBook.Models"
+        xmlns:local="clr-namespace:WPF_AddressBook"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900">
+    
+    <Grid Margin="20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0" Margin="0 0 30 0" >
+            
+            <Label Content="Firstname" Margin="0 10 0 0" />
+            <TextBox x:Name="tb_FirstName" Padding="5" />
+
+            <Label Content="Lastname" Margin="0 10 0 0" />
+            <TextBox x:Name="tb_LastName" Padding="5" />
+
+            <Label Content="Email" Margin="0 10 0 0" />
+            <TextBox x:Name="tb_Email" Padding="5" />
+
+            <Label Content="Phone" Margin="0 10 0 0" />
+            <TextBox x:Name="tb_Phone" Padding="5" />
+
+            <Label Content="Streetname" Margin="0 10 0 0" />
+            <TextBox x:Name="tb_StreetName" Padding="5" />
+
+            <Label Content="Postalcode" Margin="0 10 0 0" />
+            <TextBox x:Name="tb_PostalCode" Padding="5" />
+
+            <Label Content="City" Margin="0 10 0 0" />
+            <TextBox x:Name="tb_City" Padding="5" />
+
+            <Button x:Name="btn_Add" Click="Btn_Add_Click" Content="Add Contact" Margin="0 20 0 0" Padding="10"/>
+
+        </StackPanel>
+
+        <ListView x:Name="lv_Contacts" Grid.Column="1" Margin="30 0 0 0">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="models:Contact" >
+                    <StackPanel Margin="0 5 0 0">
+                        <TextBlock Text="{Binding DisplayName}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </Grid>
+    
+</Window>
